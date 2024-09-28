@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>REGISTER</title>
+          <style>
+          
+            div {
+      
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height:160vh;
+              margin: 0;
+              padding:1em;
+             
+            }
+            form.center-form {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px; 
+            }
+            
+            input[type="text"],
+            input[type="number"],
+            input[type="password"],
+           
+            input[type="email"] {
+              padding: 10px;
+              width: 200px;
+             
+            }
+            input[type="submit"],
+            input[type="reset"] {
+              padding: 10px 20px;
+              cursor: pointer;
+             
+            }
+          
+              
+          </style>
+      </head>
+      
+      <body>
+       
+          <div >
+            
+          <form  class="center-form" action="http://localhost:3000/updateprofile" method="POST" id="signup">
+            <H4>REGISTRATION</H4>
+            <p><b><font size=2px color=black></font>     <input type="text" id="fname" name="fname"   value="test" required></b></p>
+              <span id="fname_err" class="err_name"></span>
+      
+              <p><b><font size=2px color=black></font>     <input type="text" id="lname" name="lname"   value="02" required></b></p>
+              <span id="lname_err" class="err_name"></span>
+      
+              <p><b><font size=2px color=black></font><input type="email" id="email" name="email" value="test02@gmail.com"  required> </b></p>
+              <span id="email_err" class="err_name"></span>
+      
+              <p><b><font size=2px color=black></font><input type="number" name="cellno" id="cellno" value="9876543212" required></b></p>
+              
+              
+         
+      
+      
+       <p><b><font size=2px color=black></font><input type="text" name="porg" id="porg"  value="vikas systems woc" required></b></p>
+      
+            
+            <p><b><font size=2px color=black></font><input type="number" id="exp"name="exp" value="9"  required></b></p>
+            <p><b><font size=2px color=black></font><input type="text" id="skill" name="skill"  value="operating system"  required></b></p>
+            
+          
+            
+            <label class=button-container>
+           
+              <input  type="submit" value="UPDATE">
+              <input  type="reset" id="reset" value="RESET">
+            
+             </label>
+             
+      
+          </form>
+          
+          
+            
+          </div>
+         
+         
+          <script>
+            let signup=document.getElementById("signup")
+             signup.addEventListener('submit',(e)=>{
+              e.preventDefault();
+              console.log("inside eventlister")
+      
+              
+              let fname=document.getElementById("fname").value
+              let fname_err=document.getElementById("fname_err")
+              fname_err.textContent='';
+      
+              if(fname.length==0)
+              fname_err.textContent=("first name cannot be empty")
+              else if(fname.length<3)
+              fname_err.textContent=("user name cannot be lessthan 3")
+      
+              else if(fname.length>20)
+              fname_err.textContent=("user name cannot be morethan 20") 
+      
+      
+              let lname=document.getElementById("lname").value 
+              let lname_err=document.getElementById("lname_err")
+                lname_err.textContent='';
+                if(lname.length==0){
+                  lname_err.textContent=("last name cannot be empty")
+                 }
+                    
+                 else if(lname.length>20)
+                 lname_err.textContent=("last name cannot be morethan 20") 
+      
+      
+                let email=document.getElementById("email").value 
+                let  email_err=document.getElementById("email_err")
+                   email_err.textContent='';
+                   if(email.lenth==0)
+                   email_err.textContent=("Email should not be empty")
+                 else if(email.length<=14){
+                     email_err.textContent=("Email should have 14 character")
+                 }
+      
+             
+               
+                e.target.submit()
+            
+               })
+      
+           
+             
+          </script>
+          
+      </body>
+      </html>
